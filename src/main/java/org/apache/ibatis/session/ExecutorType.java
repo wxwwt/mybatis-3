@@ -19,5 +19,19 @@ package org.apache.ibatis.session;
  * @author Clinton Begin
  */
 public enum ExecutorType {
-  SIMPLE, REUSE, BATCH
+
+  /**
+   *  ExecutorType.SIMPLE：该类型的执行器没有特别的行为。它为每个语句的执行创建一个新的预处理语句(PreparedStatements)。
+   */
+  SIMPLE,
+
+  /**
+   * ExecutorType.REUSE：该类型的执行器会复用预处理语句。
+   */
+  REUSE,
+
+  /**
+   * ExecutorType.BATCH：该类型的执行器会批量执行所有更新语句，如果 SELECT 在多个更新中间执行，将在必要时将多条更新语句分隔开来，以方便理解。
+   */
+  BATCH
 }
